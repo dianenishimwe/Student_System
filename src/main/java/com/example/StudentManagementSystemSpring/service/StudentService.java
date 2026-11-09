@@ -1,0 +1,29 @@
+package com.example.StudentManagementSystemSpring.service;
+
+import com.example.StudentManagementSystemSpring.model.Student;
+import com.example.StudentManagementSystemSpring.repository.StudentRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class StudentService {
+
+    private final StudentRepository studentRepository;
+
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
+
+    public void registerStudent(Student student) {
+        studentRepository.save(student);
+    }
+
+    public List<Student> getAllStudents() {
+        return studentRepository.findAll();
+    }
+
+    public Student findStudentById(int id) {
+        return studentRepository.findById(id);
+    }
+}

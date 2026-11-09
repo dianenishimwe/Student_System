@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Student Registration</h2>
+
+    <p class="success"
+       th:if="${successMessage}"
+       th:text="${successMessage}">
+    </p>
+
+    <form th:action="@{/student/register}"
+          th:object="${student}"
+          method="post">
+
+        <label>First Name</label>
+        <input type="text" th:field="*{firstName}">
+
+        <label>Last Name</label>
+        <input type="text" th:field="*{lastName}">
+
+        <label>Email</label>
+        <input type="text" th:field="*{email}">
+
+        <label>Age</label>
+        <input type="number" th:field="*{age}">
+
+        <button type="submit">Register Student</button>
+
+    </form>
+
+    <div class="link">
+        <a th:href="@{/student/all}">All Students</a>
+    </div>
+
+</div>
+
+</body>
+</html>
